@@ -1,7 +1,6 @@
-// Placeholder project data — replace each entry with your real projects.
-// `image` should point at a file you've added under /public/images
-// (e.g. "/images/project-one.jpg"); leave it unset to keep the gradient
-// placeholder card.
+// Pulled from https://github.com/Shashwatsharma97 (forked repos and the
+// profile README repo excluded). Add an `image` path (under /public/images)
+// to any entry once you have a screenshot for it.
 
 export type Project = {
   slug: string;
@@ -14,27 +13,41 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "project-one",
-    title: "Project One",
+    slug: "real-time-driver-drowsiness-detection",
+    title: "Real-Time Driver Drowsiness Detection",
     description:
-      "Replace with a one- or two-sentence summary of what this project does, the problem it solves, and your role in building it.",
-    tags: ["Next.js", "TypeScript"],
-    href: "#",
+      "A real-time driver drowsiness detection system using computer vision and deep learning to monitor a driver's face and detect signs of fatigue — eye closure, yawning, head tilt — with timely alerts to prevent drowsy-driving accidents.",
+    tags: ["Python", "Computer Vision", "Deep Learning"],
+    href: "https://github.com/Shashwatsharma97/Real-Time-Driver-Drowsiness-Detection-System-By-Shashwat",
   },
   {
-    slug: "project-two",
-    title: "Project Two",
+    slug: "fit-sync",
+    title: "FitSync",
     description:
-      "Replace with a one- or two-sentence summary of what this project does, the problem it solves, and your role in building it.",
-    tags: ["React", "Node.js"],
-    href: "#",
+      "A fitness coach app that provides personalized exercise advice and workout schedules, letting users track progress and set fitness goals for better health management.",
+    tags: ["JavaScript"],
+    href: "https://github.com/Shashwatsharma97/Fit_sync",
   },
   {
-    slug: "project-three",
-    title: "Project Three",
+    slug: "blackjack",
+    title: "Blackjack",
     description:
-      "Replace with a one- or two-sentence summary of what this project does, the problem it solves, and your role in building it.",
-    tags: ["PostgreSQL", "AWS"],
-    href: "#",
+      "A browser-based Blackjack card game built with JavaScript.",
+    tags: ["JavaScript"],
+    href: "https://github.com/Shashwatsharma97/Blackjack",
+  },
+  {
+    slug: "tic-tac-toe",
+    title: "Tic Tac Toe",
+    description: "A classic Tic Tac Toe game implemented in C++.",
+    tags: ["C++"],
+    href: "https://github.com/Shashwatsharma97/Tic-Tac-Toe",
+  },
+  {
+    slug: "sql-basics",
+    title: "SQL Basics",
+    description: "A collection of foundational SQL queries and exercises.",
+    tags: ["SQL"],
+    href: "https://github.com/Shashwatsharma97/sql_basic",
   },
 ];
