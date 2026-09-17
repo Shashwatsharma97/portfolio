@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Shashwat Sharma — Portfolio
+
+A single-page developer portfolio built around a scroll-scrubbed hero video —
+scroll down and the video plays forward frame-by-frame in sync with your
+scroll position; scroll back up and it reverses, just like it. Inspired by
+the scroll feel of [1367studio.com](https://www.1367studio.com/).
+
+**Live repo:** https://github.com/Shashwatsharma97/portfolio
+
+## Features
+
+- **Scroll-scrubbed hero video** — the hero background isn't a looping clip,
+  it's bound directly to scroll position via `video.currentTime`, so
+  scrolling *is* the playback control.
+- **Buttery smooth scrolling** — [Lenis](https://github.com/darkroomengineering/lenis)
+  replaces native scroll with inertia-based easing across the whole site.
+- **Scroll "vibration"** — the hero video gets a subtle camera-shake jitter
+  that scales with scroll velocity, plus a haptic pulse
+  (`navigator.vibrate`) on devices that support it.
+- **Scroll-triggered reveals** — section content fades/slides in via
+  [Framer Motion](https://www.framer.com/motion/) as you scroll past it.
+- **Projects pulled from GitHub** — the Work section lists real repos from
+  [github.com/Shashwatsharma97](https://github.com/Shashwatsharma97).
+- Fully responsive, with a mobile hamburger nav.
+
+## Tech Stack
+
+- [Next.js 16](https://nextjs.org) (App Router, TypeScript)
+- [Tailwind CSS v4](https://tailwindcss.com)
+- [Lenis](https://github.com/darkroomengineering/lenis) — smooth scroll
+- [Framer Motion](https://www.framer.com/motion/) — scroll reveals
+
+## Project Structure
+
+```
+app/
+  layout.tsx          # root layout, fonts, wraps app in SmoothScrollProvider
+  page.tsx             # assembles Hero, About, Projects, Contact
+  globals.css           # design tokens (colors, Lenis CSS)
+components/
+  SmoothScrollProvider.tsx  # Lenis instance + React context
+  Nav.tsx                    # fixed header, smooth-scroll anchor links, mobile menu
+  Hero.tsx                    # scroll-scrubbed video hero + shake/haptics
+  About.tsx                    # skills, tech stack, bio
+  Projects.tsx / ProjectCard.tsx  # project grid
+  Contact.tsx                      # email + socials
+  Footer.tsx
+lib/
+  site-config.ts       # name, role, tagline, bio, skills, socials, email
+  projects.ts            # project list (title, description, tags, link, image)
+public/
+  images/               # project screenshots (drop files here)
+  video/hero-scrub.mp4    # hero background video, re-encoded for scroll scrubbing
+```
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) (or whatever port the
+terminal prints, if 3000 is already in use locally).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Customizing
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Your info** — edit `lib/site-config.ts` (name, role, tagline, bio,
+  skills, email, social links). Every section on the site reads from this
+  one file.
+- **Projects** — edit `lib/projects.ts`. Each entry can optionally point at
+  an `image` under `public/images/`; without one, the card falls back to a
+  gradient placeholder.
+- **Hero video** — replace `public/video/hero-scrub.mp4`. Scroll-scrubbing
+  needs a keyframe on every frame or seeking will stutter, so re-encode any
+  replacement clip with:
 
-## Learn More
+  ```bash
+  ffmpeg -i input.mp4 -t 8 -an -c:v libx264 -preset slow -crf 15 -g 1 -bf 0 \
+    -pix_fmt yuv420p -movflags +faststart public/video/hero-scrub.mp4
+  ```
 
-To learn more about Next.js, take a look at the following resources:
+  Adjust `SCRUB_VH` in `components/Hero.tsx` to change how much scroll
+  distance the video scrubs across.
+- **Colors** — edit the CSS custom properties in `app/globals.css`
+  (`--background`, `--foreground`, `--accent`, `--muted`).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Build & Deploy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run build
+```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Deploys cleanly to [Vercel](https://vercel.com) — connect this repo and it
+just works, no config needed.
