@@ -90,5 +90,5 @@ terminal prints, if 3000 is already in use locally).
 npm run build
 ```
 
-Deploys cleanly to [Vercel](https://vercel.com) — connect this repo and it
+Deploys cleanly to [Vercel](https://portfolio-two-blush-iyk2u043f4.vercel.app/) — connect this repo and it
 just works, no config needed.
