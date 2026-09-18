@@ -2,8 +2,7 @@
 
 A single-page developer portfolio built around a scroll-scrubbed hero video —
 scroll down and the video plays forward frame-by-frame in sync with your
-scroll position; scroll back up and it reverses, just like it. Inspired by
-the scroll feel of [1367studio.com](https://www.1367studio.com/).
+scroll position;
 
 **Live repo:** https://github.com/Shashwatsharma97/portfolio
 
