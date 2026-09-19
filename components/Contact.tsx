@@ -14,7 +14,7 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="font-mono text-sm uppercase tracking-[0.3em] text-accent"
         >
-          03 / Contact
+          04 / Contact
         </motion.p>
 
         <motion.a

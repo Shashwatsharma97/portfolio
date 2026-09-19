@@ -5,15 +5,17 @@ export const siteConfig = {
   name: "Shashwat Sharma",
   role: "Software Engineer",
   tagline:
-    "I design and build fast, thoughtful products for the web — swap this for your own one-line pitch.",
+    "I build fullstack products end-to-end and publish peer-reviewed research on applying machine learning to real-world problems.",
   email: "shashwatsharma122004@gmail.com",
   about:
-    "Short bio paragraph goes here — a couple of sentences about your background, what you focus on, and what drives your work. Replace with your own story.",
+    "I'm a fullstack developer who also does applied ML research — co-author on a published conference paper using explainable AI for crop prediction, and a book chapter on ML-driven food waste reduction. I like projects that force a real decision, not another CRUD clone.",
   skills: [
     "TypeScript",
     "React",
     "Next.js",
     "Node.js",
+    "Python",
+    "Machine Learning",
     "PostgreSQL",
     "AWS",
   ],
